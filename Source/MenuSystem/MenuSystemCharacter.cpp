@@ -13,6 +13,7 @@
 #include "OnlineSubsystem.h"
 #include "OnlineSubsystemUtils.h"
 #include "OnlineSessionSettings.h"
+#include "OnlineServicesOSSAdapter.h"
 #include "Online/OnlineSessionNames.h" 
 
 DEFINE_LOG_CATEGORY(LogTemplateCharacter);
