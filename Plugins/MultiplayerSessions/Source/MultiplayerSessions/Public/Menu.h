@@ -4,6 +4,9 @@
 
 #include "CoreMinimal.h"
 #include "Blueprint/UserWidget.h"
+#include "OnlineSessionSettings.h"
+#include "OnlineSubsystemTypes.h"
+#include "MultiplayerSessionsSubsystem.h"
 #include "Menu.generated.h"
 
 /**
@@ -23,10 +26,19 @@ protected:
 	virtual void NativeDestruct() override;
 
 	//
-	// Callbacks for the custom Delegates on the NultiplayerSessionsSubsystem
+	// Callbacks for the custom Delegates on the MultiplayerSessionsSubsystem
 	//
 	UFUNCTION()
 	void OnCreateSession(bool bWasSuccessful);
+
+	void OnFindSessions(const TArray<FOnlineSessionSearchResult>& SessionResults, bool bWasSuccessful);
+	void OnJoinSession(EOnJoinSessionCompleteResult::Type Result);
+
+	UFUNCTION()
+	void OnDestroySession(bool bWasSuccessful);
+
+	UFUNCTION()
+	void OnStartSession(bool bWasSuccessful);
 
 private:
 	UPROPERTY(meta = (BindWidget))
